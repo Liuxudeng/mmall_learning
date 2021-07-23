@@ -1,0 +1,38 @@
+# 这个文件的用法是用来过滤一些文件，忽略什么就在里面写什么
+
+
+
+
+*.class
+#package file
+*.war
+*.jar
+*.ear
+
+#kdiff3 ignore
+target/
+
+
+#eclipse ignore
+.settings/
+.project
+.classpatch
+
+
+#idea
+.idea/
+/idea/
+*.ipr
+
+
+#temp file
+*.log
+*.catch
+*.diff
+*.patch
+*.tmp
+
+#system ignore
+.DS_store
+Thumbs.db
+
