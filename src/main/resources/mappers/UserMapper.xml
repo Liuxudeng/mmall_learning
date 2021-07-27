@@ -183,7 +183,7 @@ select  question from mmall_user where username = #{username}
   </select>
 
 
-  <select id="checkAnswer" resultType="string" parameterType="map">
+  <select id="checkAnswer" resultType="java.lang.Integer" parameterType="map">
         select
         count(1)
         from mmall_user
