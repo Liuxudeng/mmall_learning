@@ -161,10 +161,37 @@
   </select>
 
 
+  <select id="checkEmail" resultType="int" parameterType="string">
+    select count(1) from mmall_user
+    where  email = #{email}
+
+
+  </select>
+
+
   <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
 
     select count(1) from mmall_user
     where email = #{email}
       and id != #{userId}
   </select>
+
+
+  <select id="selectQuestionByUsername" resultType="string" parameterType="string">
+select  question from mmall_user where username = #{username}
+
+  </select>
+
+
+  <select id="checkAnswer" resultType="string" parameterType="map">
+        select
+        count(1)
+        from mmall_user
+    where username = #{username}
+    and question = #{question}
+    and answer = #{answer}
+  </select>
+
+
+
 </mapper>

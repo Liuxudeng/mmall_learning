@@ -40,4 +40,58 @@ public class UserController {
             }
             return response;
         }
+
+
+
+        @RequestMapping(value = "logout.do",method = RequestMethod.POST)
+        @ResponseBody
+        //第二个功能，登出功能
+    public ServerResponse<String> logout(HttpSession session){
+        session.removeAttribute(Const.CURRENT_USER);
+        return ServerResponse.createBySuccess();
+    }
+
+
+    //注册接口
+    @RequestMapping(value = "register.do",method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<String> register(User user){
+        return iUserService.register(user);
+    }
+
+
+    //校验接口
+    @RequestMapping(value = "checkvalid.do",method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<String> checkValid(String str,String type){
+    return iUserService.checkValid(str,type);
+    }
+
+
+    //获取用户信息
+    @RequestMapping(value = "get_user_info.do",method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<User> getUserInfo(HttpSession session){
+            User user = (User) session.getAttribute(Const.CURRENT_USER);
+            if(user!=null){
+
+                return ServerResponse.createBySuccess(user);
+            }
+        return ServerResponse.createByErrorMessage("用户未登录，无法获取当前用户的信息");
+
+    }
+
+    //查询密码提示问题
+    @RequestMapping(value = "get_user_question.do",method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<String> forgetGetQuestion(String username){
+            return iUserService.selectQuestion(username);
+    }
+    //查询问题答案
+    @RequestMapping(value = "get_check_amswer.do",method = RequestMethod.GET)
+    @ResponseBody
+
+    public ServerResponse<String> forgetCheckAnswer(String username,String question,String answer){
+return iUserService.checkAnswer(username,question,answer);
+    }
 }
