@@ -88,10 +88,18 @@ public class UserController {
             return iUserService.selectQuestion(username);
     }
     //查询问题答案
-    @RequestMapping(value = "get_check_amswer.do",method = RequestMethod.GET)
+    @RequestMapping(value = "get_check_answer.do",method = RequestMethod.GET)
     @ResponseBody
 
     public ServerResponse<String> forgetCheckAnswer(String username,String question,String answer){
 return iUserService.checkAnswer(username,question,answer);
+    }
+
+    //忘记密码
+    @RequestMapping(value = "forget_reset_password.do",method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<String> forgetResetPassword(String username,String password,String forgetToken){
+            return iUserService.forgetResetPassword(username,password,forgetToken);
+
     }
 }
