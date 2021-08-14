@@ -6,10 +6,14 @@
 *.class
 #package file
 *.war
-*.jar
+#*.jar
 *.ear
 
+
 #kdiff3 ignore
+*.orig
+
+#maven
 target/
 
 

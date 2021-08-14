@@ -16,7 +16,7 @@ tx">
     <!--<context:annotation-config/>-->
     <aop:aspectj-autoproxy/>
 
-
+<!--把当前的spring容器进行分离，分离出一个datasource.xml-->
     <import resource="applicationContext-datasource.xml"/>
 
 
