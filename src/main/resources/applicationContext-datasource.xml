@@ -64,7 +64,7 @@
         <!-- 分页插件 -->
         <property name="plugins">
             <array>
-                <bean class="com.github.pagehelper.PageInterceptor">
+                <bean class="com.github.pagehelper.PageHelper">
                     <property name="properties">
                         <value>
                             dialect=mysql
