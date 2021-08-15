@@ -169,11 +169,19 @@
   </select>
 
 
-  <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
+<!--  <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">-->
 
-    select count(1) from mmall_user
-    where email = #{email}
-      and id != #{userId}
+<!--    select count(1) from mmall_user-->
+<!--    where email = #{email}-->
+<!--      and id != #{userId}-->
+<!--  </select>-->
+
+  <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
+select
+   <include refid="Base_Column_List"></include>
+from mmall_user
+    where username = #{username}
+      and password = #{password}
   </select>
 
 

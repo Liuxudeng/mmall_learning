@@ -98,8 +98,8 @@ public class ServerResponse<T> implements Serializable {
         return new ServerResponse<T>(ResponseCode.Error.getCode(),ResponseCode.Error.getDesc());
     }
 
-    public static <T> ServerResponse<T> createByErrorMessage(String errorMeaasge){
-        return new ServerResponse<T>(ResponseCode.Error.getCode(),errorMeaasge);
+    public static <T> ServerResponse<T> createByErrorMessage(String errorMessage){
+        return new ServerResponse<T>(ResponseCode.Error.getCode(),errorMessage);
     }
 
 

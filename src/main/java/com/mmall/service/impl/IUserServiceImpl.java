@@ -8,8 +8,10 @@ import com.mmall.dao.UserMapper;
 import com.mmall.pojo.User;
 import com.mmall.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+@Service("iUserService")
 
 public class IUserServiceImpl implements IUserService {
 
