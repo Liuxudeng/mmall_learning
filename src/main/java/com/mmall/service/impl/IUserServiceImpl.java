@@ -44,10 +44,10 @@ public class IUserServiceImpl implements IUserService {
     public ServerResponse<String> register(User user){
         //注册时校验用户名是否存在
 
-//        int resultCount = userMapper.checkUsername(user.getUsername());
-//        if(resultCount>0){
-//            return ServerResponse.createByErrorMessage("用户名已经存在");
-//        }
+        int resultCount = userMapper.checkUsername(user.getUsername());
+        if(resultCount>0){
+            return ServerResponse.createByErrorMessage("用户名已经存在");
+        }
 
 
         ServerResponse validResponse = this.checkValid(user.getUsername(),Const.USERNAME);
@@ -60,17 +60,17 @@ public class IUserServiceImpl implements IUserService {
         }
 
         //验证邮箱是否存在
-//        resultCount = userMapper.checkEmail(user.getEmail());
-//        if(resultCount>0){
-//            return ServerResponse.createByErrorMessage("email已经存在");
-//        }
+        resultCount = userMapper.checkEmail(user.getEmail());
+        if(resultCount>0){
+            return ServerResponse.createByErrorMessage("email已经存在");
+        }
 
         user.setRole(Const.Role.ROLE_CUSTOMER);
 
         //MD5加密
         user.setPassword(MD5Util.MD5EncodeUtf8(user.getPassword()));
 
-   int     resultCount = userMapper.insert(user);
+     resultCount = userMapper.insert(user);
 
         if(resultCount==0){
             return ServerResponse.createByErrorMessage("注册失败");
