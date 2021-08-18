@@ -2,8 +2,13 @@ package com.mmall.dao;
 
 import com.mmall.common.ServerResponse;
 import com.mmall.pojo.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+
+@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -76,7 +76,7 @@
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
-      <version>1.9.7</version>
+      <version>1.9.4</version>
     </dependency>
     <dependency>
 
@@ -99,12 +99,21 @@
     </dependency>
 
 
+<!--    <dependency>-->
+<!--      <groupId>org.codehaus.jackson</groupId>-->
+<!--      <artifactId>jackson-mapper-asl</artifactId>-->
+<!--      <version>1.9.13</version>-->
+<!--    </dependency>-->
     <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
-      <version>1.9.13</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.9.9</version>
     </dependency>
-
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.9</version>
+    </dependency>
 
     <dependency>
       <groupId>commons-dbcp</groupId>
@@ -153,6 +162,7 @@
       <version>3.2.1</version>
     </dependency>
 
+
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
@@ -192,7 +202,7 @@
     <dependency>
       <groupId>com.github.pagehelper</groupId>
       <artifactId>pagehelper</artifactId>
-      <version>5.2.1</version>
+      <version>4.0.0</version>
     </dependency>
 
 
@@ -274,6 +284,13 @@
       <version>RELEASE</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>2.5.1</version>
+    </dependency>
+
+
 
 
 
@@ -294,6 +311,8 @@
           <verbose>true</verbose>
           <overwrite>true</overwrite>
         </configuration>
+
+
       </plugin>
 
       <!-- geelynote maven的核心插件之-complier插件默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
