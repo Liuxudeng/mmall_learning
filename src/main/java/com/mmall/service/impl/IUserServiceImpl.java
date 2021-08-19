@@ -152,7 +152,7 @@ public class IUserServiceImpl implements IUserService {
 
     @Override
     public ServerResponse<String> forgetResetPassword(String username,String passwordNew,String forgetToken) {
-        if (org.apache.commons.lang3.StringUtils.isNoneEmpty(forgetToken)) {
+        if (org.apache.commons.lang3.StringUtils.isBlank(forgetToken)) {
             return ServerResponse.createByErrorMessage("参数错误，token需要传递");
 
         }
