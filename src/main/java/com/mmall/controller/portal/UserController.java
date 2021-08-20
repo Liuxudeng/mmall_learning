@@ -104,8 +104,8 @@ public class UserController {
     //忘记密码
     @RequestMapping(value = "forget_reset_password.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> forgetResetPassword(String username, String password, String forgetToken) {
-        return iUserService.forgetResetPassword(username, password, forgetToken);
+    public ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken) {
+        return iUserService.forgetResetPassword(username, passwordNew, forgetToken);
 
     }
 
