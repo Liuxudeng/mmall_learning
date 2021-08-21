@@ -30,7 +30,7 @@
       status, sort_order, create_time, 
       update_time)
     values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now()},
+      #{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now(),
             now())
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.Category" >
@@ -116,4 +116,15 @@
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+  <select id="selectCategoryChildrenByParentId" resultMap="BaseResultMap" parameterType="int">
+    select
+<include refid="Base_Column_List"/>
+
+from mmall_category
+where parent_id =#{parentId}
+
+  </select>
 </mapper>
