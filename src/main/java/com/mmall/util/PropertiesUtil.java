@@ -10,6 +10,8 @@ import java.util.Properties;
 
 /**
  * Created by geely
+ *
+ * 执行顺序：静态代码块优于普通代码块。普通代码块优于构造代码块
  */
 public class PropertiesUtil {
 
