@@ -179,7 +179,7 @@
 
 
 
-  <select id="selectList"  resultMap="com.mmall.dao.CartMapper.BaseResultMap">
+  <select id="selectList"  resultMap="BaseResultMap">
 select
 <include refid="Base_Column_List"/>
 
@@ -203,4 +203,43 @@ order by id asc
       </if>
     </where>
   </select>
+
+
+
+  <select id="selectByNameAndCategoryIds" resultMap="BaseResultMap" parameterType="map">
+select
+<include refid="Base_Column_List">
+
+
+
+</include>
+
+    from mmall_product
+    where status = 1;
+
+<if test="productName!=null">
+
+and name like #{productName}
+</if>
+
+
+<if test="categoryIdList!=null">
+
+  and category_id in
+  <foreach item="item" index="index" open = "(" separator="," close=")" collection = "categoryIdList">
+#{item}
+
+  </foreach>
+</if>
+
+
+
+  </select>
+
+
+
+
+
+
+
 </mapper>
