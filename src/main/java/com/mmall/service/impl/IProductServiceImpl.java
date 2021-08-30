@@ -79,7 +79,7 @@ public class IProductServiceImpl implements IProductService {
     @Override
     public ServerResponse<String> setSaleStatus(Integer productId, Integer status) {
         if (productId == null || status == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEAGL_ARGUMENT.getCode(), ResponseCode.ILLEAGL_ARGUMENT.getDesc());
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
         Product product = new Product();
         product.setId(productId);
@@ -94,7 +94,7 @@ public class IProductServiceImpl implements IProductService {
 @Override
     public ServerResponse<Object> manageProductDetail(Integer productId) {
         if (productId == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEAGL_ARGUMENT.getCode(), ResponseCode.ILLEAGL_ARGUMENT.getDesc());
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
 
         }
         Product product = productMapper.selectByPrimaryKey(productId);
@@ -256,8 +256,8 @@ public class IProductServiceImpl implements IProductService {
 public ServerResponse<ProductDetailVo> getProductDetail(Integer productId){
 
         if(productId==null){
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEAGL_ARGUMENT.getCode(),
-                    ResponseCode.ILLEAGL_ARGUMENT.getDesc());
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),
+                    ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
         Product product = productMapper.selectByPrimaryKey(productId);
 
@@ -278,8 +278,8 @@ public ServerResponse<ProductDetailVo> getProductDetail(Integer productId){
 @Override
 public ServerResponse<PageInfo> getProductByKeywordCategory(String keyword,Integer categoryId,int pageNum,int pageSize,String orderBy){
     if(StringUtils.isBlank(keyword)&&categoryId==null){
-        return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEAGL_ARGUMENT.getCode(),
-                ResponseCode.ILLEAGL_ARGUMENT.getDesc());
+        return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),
+                ResponseCode.ILLEGAL_ARGUMENT.getDesc());
     }
 
     List<Integer> categoryIdList = new ArrayList<Integer>();
