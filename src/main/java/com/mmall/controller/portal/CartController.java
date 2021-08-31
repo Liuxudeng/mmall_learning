@@ -23,14 +23,14 @@ public class CartController {
         //查询方法list
         @RequestMapping("list.do")
         @ResponseBody
-        public ServerResponse<Cartvo> list(HttpSession session, Integer count, Integer productId){
+        public ServerResponse<Cartvo> list(HttpSession session){
             User user = (User) session.getAttribute(Const.CURRENT_USER);
             //首先判断登陆状态
             if(user==null){
                 return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
             }
             //购物车核心逻辑
-            return iCartService.add(user.getId(),productId,count);
+            return iCartService.list(user.getId());
         }
 
 
@@ -74,7 +74,7 @@ public class CartController {
 
     @RequestMapping("delete_product.do")
     @ResponseBody
-    public ServerResponse<Cartvo> deleteProduct(HttpSession session, Integer count, String productIds){
+    public ServerResponse<Cartvo> deleteProduct(HttpSession session,  String productIds){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         //首先判断登陆状态
         if(user==null){

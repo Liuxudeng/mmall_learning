@@ -363,10 +363,10 @@ public class ICartServiceImpl implements ICartService {
             cartMapper.updateByPrimaryKeySelective(cart);
         }
         //
-    Cartvo cartvo = this.getCartVoLimit(userId);
-        return ServerResponse.createBySuccess(cartvo);
+   // Cartvo cartvo = this.getCartVoLimit(userId);
+     //   return ServerResponse.createBySuccess(cartvo);
 
-       // return this.list(userId);
+        return this.list(userId);
     }
 @Override
     public ServerResponse<Cartvo> update(Integer userId,Integer productId,Integer count){
@@ -437,7 +437,7 @@ public class ICartServiceImpl implements ICartService {
                 cartProductVo.setId(cartItem.getId());
                 cartProductVo.setUserId(userId);
                 cartProductVo.setProductId(cartItem.getProductId());
-
+                System.out.println("ProductId,"+ cartItem.getProductId());
                 Product product = productMapper.selectByPrimaryKey(cartItem.getProductId());
                 if(product != null){
                     cartProductVo.setProductMainImage(product.getMainImage());
@@ -469,6 +469,8 @@ public class ICartServiceImpl implements ICartService {
 
                 if(cartItem.getChecked() == Const.Cart.CHECKED){
                     //如果已经勾选,增加到整个的购物车总价中
+              //      System.out.println(cartTotalPrice.doubleValue());
+               //     System.out.println(cartProductVo.getProductTotalPrice().doubleValue());
                     cartTotalPrice = BigDecimalUtil.add(cartTotalPrice.doubleValue(),cartProductVo.getProductTotalPrice().doubleValue());
                    // cartTotalPrice = BigDecimalUtil.add(cartTotalPrice.doubleValue(),0);
 
