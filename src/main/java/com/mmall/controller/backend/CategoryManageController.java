@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * @author win10
+ */
 @Controller
 @RequestMapping("/manage/category")
 
